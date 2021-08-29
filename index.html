@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- PWA settings for ios device -->
+    <!-- <link rel="apple-touch-icon" href="logo.png" />
+    <link rel="apple-touch-startup-image" href="logo.png" />
+    <meta name="apple-mobile-web-app-title" content="PWA DEMO" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ffffff" />
+    <meta name="description" content="PWA DEMO" /> -->
+
+    <title>PWA DEMO</title>
+    <link rel="manifest" href="manifest.json" />
+    <!-- <link rel="shortcut icon" href="#" /> -->
+  </head>
+  <body>
+    <h1>PWA DEMO</h1>
+    <img src="images/epay.png" alt="epay" style="width: 500px" />
+  </body>
+</html>
+<script type="module">
+  navigator.serviceWorker
+    .register("sw.js")
+    .then(() => console.log("sw.js 註冊成功"))
+    .catch((error) => console.log("sw.js 註冊失敗", error));
+</script>
