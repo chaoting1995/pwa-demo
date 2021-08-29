@@ -1,5 +1,6 @@
 {
   "name": "pwa-demo",
+  "homepage": "https://chaoting1995.github.io/pwa-demo",
   "version": "1.0.0",
   "description": "pwa-demo",
   "main": "index.js",
