@@ -3,7 +3,7 @@
   "name": "PWA-DEMO",
   "icons": [
     {
-      "src": "logo.png",
+      "src": "icon.png",
       "type": "image/png",
       "sizes": "192x192"
     }

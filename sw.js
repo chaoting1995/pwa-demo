@@ -8,13 +8,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       //  在安裝 Service Worker 時，將相關資源進行緩存
-      cache.addAll([
-        "images/epay.png",
-        // "logo.png",
-        "custom404.html",
-        "/",
-        "index.html",
-      ]);
+      cache.addAll(["images/epay.png", "custom404.html", "/", "index.html"]);
     })
   );
 });
