@@ -38,3 +38,36 @@ self.addEventListener("fetch", (event) => {
 
 // 立即受控
 self.addEventListener("activate", (event) => clients.claim());
+
+// 自定義安裝時機
+// 0.捕獲安裝題提示事件
+var installPromptEvent = null;
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault(); //Chrome <= 67 可以阻止顯示
+  installPromptEvent = event; // 拿到事件的引用
+  document.querySelector("#btn-install").disabled = false;
+  //更新安裝UI，通知用戶可以安裝
+});
+
+// 1.顯示prompt 對話框
+document.querySelector("#btn-install").addEventListener("click", () => {
+  if (!installPromptEvent) return;
+});
+installPromptEvent.prompt();
+installPromptEvent.userChoice.then((choiceResult) => {
+  if (choiceResult.outcome == "accepted") {
+    console.log("用戶已同意添加到桌面");
+  } else {
+    console.log("用戶已取消添加到桌面");
+  }
+});
+
+// 2.已安裝事件處理
+window.addEventListener("appintstalled", (evt) => {
+  console.log("已安裝到桌面屏幕");
+});
+
+// 3.環境判斷
+if (window.matchMedia("(display-mode:standalone)").matches) {
+  console.log("display-mode 是 standalone");
+}

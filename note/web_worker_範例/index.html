@@ -28,4 +28,13 @@
     .register("sw.js")
     .then(() => console.log("sw.js 註冊成功"))
     .catch((error) => console.log("sw.js 註冊失敗", error));
+
+  // 主線程和 worker 線程通信
+  const worker = new Worker("worker.js");
+  document.querySelector("#send").onclick = () => {
+    worker.postMessage({
+      type: "send",
+    });
+  };
+  worker.onmessage = (e) => console.log("收到worker信息", e.data);
 </script>
